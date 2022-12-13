@@ -55,8 +55,11 @@ $choice_points = [
 $total_score = 0;
 
 if ($file) {
+    //Reads the input file line by line
     while (($line = fgets($file)) != false) {
+        //Extracts the sugested choices from the line.
         [$opponets_choices, $your_choices ] = explode(" ", rtrim($line));
+        //Calculate the score of eaach match.
         switch ($opponets_choices) {
             //Rock
             case 'A':

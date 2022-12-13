@@ -53,10 +53,10 @@
 
 $file = fopen('input.txt', 'r');
 
-$calories_per_elf = [];
-
 if ($file) {
+    $calories_per_elf = [];
     $total_elf_calories = 0;
+
     //read each line of the file
     while (($line = fgets($file)) != false ) {
         //check for a emty lines
@@ -67,9 +67,12 @@ if ($file) {
             $total_elf_calories = $total_elf_calories + intval($line);
         }
     }
+
+    //Sort the array from largest to smalles values.
+    rsort($calories_per_elf);
+    //Returns sum of the top 3 elfs calories.
+    echo $calories_per_elf[0] + $calories_per_elf[1] + $calories_per_elf[2];
+
 }
 
-rsort($calories_per_elf);
-
-echo $calories_per_elf[0] + $calories_per_elf[1] + $calories_per_elf[2];
 
